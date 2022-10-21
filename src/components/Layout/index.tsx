@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import Header from './Header'
 
 interface LayoutProps {
   pageTitle?: string
@@ -8,18 +8,13 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
   return (
-    <>
-      <nav>
-        <ul className='flex space-x-4'>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
+    <div className="py-5 px-5">
+      <Header />
       <main>
-        <h1 className="text-5xl font-bold py-4">{pageTitle}</h1>
+        <h1 className="text-5xl mb-6">{pageTitle}</h1>
         {children}
       </main>
-    </>
+    </div>
   )
 }
 

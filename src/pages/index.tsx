@@ -4,8 +4,8 @@ import Layout from '../components/Layout'
 
 const IndexPage = () => {
   return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
+    <Layout pageTitle="져니 홈">
+      <p>져니 홈에 오신 것을 환영합니당✌</p>
     </Layout>
   )
 }
