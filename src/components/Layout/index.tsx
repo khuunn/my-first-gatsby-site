@@ -8,18 +8,18 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
   return (
-    <div>
+    <>
       <nav>
-        <ul>
+        <ul className='flex space-x-4'>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
         </ul>
       </nav>
       <main>
-        <h1>{pageTitle}</h1>
+        <h1 className="text-5xl font-bold py-4">{pageTitle}</h1>
         {children}
       </main>
-    </div>
+    </>
   )
 }
 
