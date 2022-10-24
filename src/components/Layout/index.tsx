@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
 }
 
 Layout.defaultProps = {
-  pageTitle: 'Default title'
+  pageTitle: 'Default title',
 }
 
 export default Layout

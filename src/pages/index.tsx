@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { HeadFC } from 'gatsby'
 import Layout from '../components/Layout'
+import Seo from '../components/Seo'
 
 const IndexPage = () => {
   return (
@@ -12,4 +13,4 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <Seo title="져니 | 홈" />
