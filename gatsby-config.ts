@@ -20,21 +20,7 @@ const config: GatsbyConfig = {
         path: `${__dirname}/blog`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-highlight-code`,
-            options: {
-              terminal: 'carbon',
-              theme: 'blackboard',
-            },
-          },
-        ],
-      },
-    },
+    'gatsby-plugin-mdx',
   ],
 }
 

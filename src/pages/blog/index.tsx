@@ -1,13 +1,13 @@
-import { graphql, HeadFC } from 'gatsby'
+import { graphql, HeadFC, Link } from 'gatsby'
 import * as React from 'react'
-import Layout from '../components/Layout'
-import Seo from '../components/Seo'
+import Layout from '../../components/Layout'
+import Seo from '../../components/Seo'
 
-interface INode {
+export interface IBlogPost {
   frontmatter: {
     title: string
-    slug: string
-    date: string
+    slug?: string
+    date?: string
   }
   id: string
 }
@@ -15,7 +15,7 @@ interface INode {
 interface BlogPageProps {
   data: {
     allMdx: {
-      nodes: INode[]
+      nodes: IBlogPost[]
     }
   }
 }
@@ -26,7 +26,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
       <ul>
         {data.allMdx.nodes.map(({ frontmatter, id }) => (
           <article key={id}>
-            <h2>{frontmatter.title}</h2>
+            <h2>
+              <Link to={`/blog/${frontmatter.slug}`}>{frontmatter.title}</Link>
+            </h2>
             <p>등록일: {frontmatter.date}</p>
           </article>
         ))}
