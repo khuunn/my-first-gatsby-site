@@ -3,10 +3,19 @@ import * as React from 'react'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 
+interface INode {
+  frontmatter: {
+    title: string
+    slug: string
+    date: string
+  }
+  id: string
+}
+
 interface BlogPageProps {
   data: {
-    allFile: {
-      nodes: Array<{ name: string }>
+    allMdx: {
+      nodes: INode[]
     }
   }
 }
@@ -15,8 +24,11 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
   return (
     <Layout pageTitle="져니 픽">
       <ul>
-        {data.allFile.nodes.map(({ name }) => (
-          <li key={name}>{name}</li>
+        {data.allMdx.nodes.map(({ frontmatter, id }) => (
+          <article key={id}>
+            <h2>{frontmatter.title}</h2>
+            <p>등록일: {frontmatter.date}</p>
+          </article>
         ))}
       </ul>
     </Layout>
@@ -27,9 +39,14 @@ export default BlogPage
 
 export const query = graphql`
   query {
-    allFile {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
-        name
+        frontmatter {
+          title
+          slug
+          date
+        }
+        id
       }
     }
   }

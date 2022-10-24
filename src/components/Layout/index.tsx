@@ -1,5 +1,8 @@
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader'
 import * as React from 'react'
 import Header from './Header'
+
+deckDeckGoHighlightElement()
 
 interface LayoutProps {
   pageTitle?: string
